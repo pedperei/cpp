@@ -74,5 +74,5 @@ void Contact::print_contact(int index)
     std::cout << std::setw(10) << index;
     std::cout << "|" << std::setw(10) << treat_contact(this->first_name);
     std::cout << "|" << std::setw(10) << treat_contact(this->last_name);
-    std::cout << "|" << std::setw(10) << treat_contact(this->phone_number) << std::endl;
+    std::cout << "|" << std::setw(10) << treat_contact(this->nick_name) << std::endl;
 }
