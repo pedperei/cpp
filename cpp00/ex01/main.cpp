@@ -6,7 +6,7 @@
 /*   By: pedperei <pedperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:32:52 by pedperei          #+#    #+#             */
-/*   Updated: 2023/08/28 13:15:56 by pedperei         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:00:26 by pedperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ int main (void)
         }
         else if (input.compare("SEARCH") == 0)
             phonebook.search(phonebook);
+        if (std::cin.eof())
+            return (1);
     }
 }

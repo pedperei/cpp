@@ -60,11 +60,21 @@ void PhoneBook::add()
 void PhoneBook::search(PhoneBook phonebook)
 {
     int i = -1;
+    std::string input;
     std::cout << "     index|first name| last name|  nickname" << std::endl;
     while (!phonebook.listContacts[++i].getFirst_name().empty())
     {
         phonebook.listContacts[i].print_contact(i);
-    } 
-
+    }
+    std::cout << "Insert index:";
+    std::getline(std::cin, input);
+    if ((input.compare("0") == 0 || (atoi(input.c_str()) > 0 && atoi(input.c_str()) <= 9))
+            && !phonebook.listContacts[atoi(input.c_str())].getFirst_name().empty())
+    {
+        std::cout << "     index|first name| last name|  nickname" << std::endl;
+        phonebook.listContacts[atoi(input.c_str())].print_contact(atoi(input.c_str()));
+    }
+    else
+        std::cout << "index out of bounds" << std::endl;
 }
 
