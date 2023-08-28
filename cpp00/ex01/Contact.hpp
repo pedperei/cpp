@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio>
+#include <iomanip> 
 //using namespace std;
 
 class Contact
@@ -24,6 +25,5 @@ class Contact
     std::string getNick_name(void);
     std::string getPhone_number(void);
     std::string getDarkest_secret(void);
-    void print_contact(void);
-
+    void print_contact(int);
 };

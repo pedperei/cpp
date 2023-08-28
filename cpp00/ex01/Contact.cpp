@@ -59,11 +59,20 @@ std::string Contact::getDarkest_secret()
     return this->darkest_secret;
 }
 
-void Contact::print_contact(void)
+std::string treat_contact(std::string str)
 {
-    std::cout << "first_name" << this->first_name << std::endl;
-    std::cout << "last_name" << this->last_name << std::endl;
-    std::cout << "nick_name" << this->nick_name << std::endl;
-    std::cout << "phone_number" << this->phone_number << std::endl;
-    std::cout << "darkest_secret" << this->darkest_secret << std::endl;
+    if (str.length() > 10)
+    {
+        str = str.substr(0, 10);
+        str = str.replace(9,1,".");
+    }
+    return (str);
+}
+
+void Contact::print_contact(int index)
+{
+    std::cout << std::setw(10) << index;
+    std::cout << "|" << std::setw(10) << treat_contact(this->first_name);
+    std::cout << "|" << std::setw(10) << treat_contact(this->last_name);
+    std::cout << "|" << std::setw(10) << treat_contact(this->phone_number) << std::endl;
 }

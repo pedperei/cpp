@@ -6,7 +6,7 @@
 /*   By: pedperei <pedperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:32:52 by pedperei          #+#    #+#             */
-/*   Updated: 2023/08/25 18:53:27 by pedperei         ###   ########.fr       */
+/*   Updated: 2023/08/28 13:15:56 by pedperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main (void)
 {
-    PhoneBook PhoneBook;
+    PhoneBook phonebook;
     std::string input = "";
 
     std::cout << "Type ADD to add contact" << std::endl;
@@ -28,9 +28,9 @@ int main (void)
         std::getline(std::cin, input);
         if (input.compare("ADD") == 0)
         {
-            PhoneBook.add();
+            phonebook.add();
         }
         else if (input.compare("SEARCH") == 0)
-            PhoneBook.add();
+            phonebook.search(phonebook);
     }
 }
