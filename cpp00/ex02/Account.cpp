@@ -1,8 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedperei <pedperei@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/28 19:34:29 by pedperei          #+#    #+#             */
+/*   Updated: 2023/08/28 20:40:49 by pedperei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <cstdio>
 #include <iomanip>
 #include <stdlib.h> 
 #include "Account.hpp"
+
+//Inicializar as variaveis estaticas!!!
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
+
 
 Account::Account(int initial_deposit)
 {
