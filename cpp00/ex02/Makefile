@@ -1,4 +1,4 @@
-NAME=phoneBook
+NAME=account
 
 C_FILES= Account.cpp\
 		 tests.cpp\
