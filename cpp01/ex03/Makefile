@@ -1,6 +1,9 @@
 NAME=violence
 
 C_FILES= Weapon.cpp\
+		 HumanA.cpp\
+		 HumanB.cpp\
+		 main.cpp\
 		 
 CC=c++
 CFLAGS= -std=c++98 -Wall -Wextra -Werror -g

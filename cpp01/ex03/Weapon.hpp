@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <cstdio>
 #include <iomanip>
@@ -9,9 +11,9 @@ class Weapon
         std::string type;
         
     public:
-    Weapon();
+    Weapon(std::string type);
     ~Weapon();
     void setType(std::string);
-    std::string getType();
+    std::string getType(void);
 };
 
