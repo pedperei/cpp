@@ -3,7 +3,6 @@
 #include <iostream>
 #include <cstdio>
 #include <iomanip>
-#include <stdlib.h> 
 
 class Weapon
 {

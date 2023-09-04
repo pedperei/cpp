@@ -18,7 +18,9 @@ int File::replace(std::string name, std::string s1, std::string s2)
     int s1len = s1.length();
     int pos;
 
-    ifile.open("test.txt");
+    ifile.open(name.c_str());
+    if (!(ifile.is_open()))
+        return (0);
     ifile >> contents;
     ifile.close();
 
@@ -28,12 +30,10 @@ int File::replace(std::string name, std::string s1, std::string s2)
         contents.erase(pos, s1len);
         contents.insert(pos, s2);
     }
-    ofile.open(name.c_str());
+    ofile.open((name + ".replace").c_str());
+    if(!(ofile.is_open()))
+        return (0);
     ofile << contents;
-
-    (void)s1;
-    (void)s2;
-    (void)name;
-
+    ofile.close();
     return (1);
 }
