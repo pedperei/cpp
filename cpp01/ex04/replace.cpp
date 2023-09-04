@@ -15,15 +15,19 @@ int File::replace(std::string name, std::string s1, std::string s2)
     std::ifstream ifile;
     std::ofstream ofile;
     std::string contents;
+    std::string buff;
     int s1len = s1.length();
     int pos;
 
     ifile.open(name.c_str());
     if (!(ifile.is_open()))
         return (0);
-    ifile >> contents;
+    while (std::getline(ifile, buff))
+    {
+        contents += (buff + "\n");
+    }
+    contents.erase(contents.length()-1,1);
     ifile.close();
-
     while (contents.find(s1) != std::string::npos)
     {
         pos = contents.find(s1);
