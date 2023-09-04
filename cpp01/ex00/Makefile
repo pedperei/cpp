@@ -1,6 +1,6 @@
 NAME=Zombie
 
-C_FILES= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+C_FILES= main.cpp Zombie.cpp randomChump.cpp
 
 CXX=c++
 CXXFLAGS= -std=c++98 -Wall -Wextra -Werror -g

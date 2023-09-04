@@ -18,3 +18,10 @@ void Zombie::setName(std::string name)
 {
     this->name = name;
 }
+
+Zombie *Zombie::newZombie(std::string name)
+{
+    Zombie *newZombie = new Zombie;
+    newZombie->setName(name);
+    return (newZombie);
+}
