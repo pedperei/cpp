@@ -14,7 +14,7 @@ int main( void )
 
     std::cout << "\nArithmetic Operators" << std::endl; 
     Fixed c(4);
-    Fixed const d( Fixed( 5.25f ) );
+    Fixed const d( Fixed( 5.2533333333f ) );
     std::cout << d*c << std::endl;
     std::cout << d/c << std::endl;
     std::cout << d+c << std::endl;

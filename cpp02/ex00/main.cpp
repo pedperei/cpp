@@ -17,8 +17,5 @@ e = d;
 std::cout << a.getRawBits() << std::endl;
 std::cout << d.getRawBits() << std::endl;
 std::cout << e.getRawBits() << std::endl;
-std::cout << a.getFractBits() << std::endl;
-std::cout << d.getFractBits() << std::endl;
-std::cout << e.getFractBits() << std::endl;
 return 0;
 }

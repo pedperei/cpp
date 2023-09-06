@@ -23,5 +23,5 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
    /* Calculate area of triangle PAB */  
    float PAB = area (point, a, b);
 
-   return (ABC == PBC + PAC + PAB);
+   return ((ABC == PBC + PAC + PAB) && PBC != 0 && PAC != 0 && PAB !=0);
 }
