@@ -2,8 +2,17 @@
 
 ClapTrap::ClapTrap()
 {
-    std::cout << "Default constructor has been called" << std::endl;
+    std::cout << "Default constructor has been called - ClapTrap" << std::endl;
     this->Name = "Default";
+    this->Hit = 10;
+    this->Energy = 10;
+    this->Damage = 0;
+}
+
+ClapTrap::ClapTrap(std::string Name)
+{
+    std::cout << "Name constructor has been called - ClapTrap" << std::endl;
+    this->Name = Name;
     this->Hit = 10;
     this->Energy = 10;
     this->Damage = 0;
@@ -15,18 +24,9 @@ ClapTrap::ClapTrap(const ClapTrap &clap)
     *this = clap;
 }
 
-ClapTrap::ClapTrap(std::string Name)
-{
-    std::cout << "Name constructor has been called" << std::endl;
-    this->Name = Name;
-    this->Hit = 10;
-    this->Energy = 10;
-    this->Damage = 0;
-}
-
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor has been called" << std::endl;
+    std::cout << "Destructor has been called - ClapTrap" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &p)
@@ -56,27 +56,28 @@ void ClapTrap::setDamage(int Damage)
     this->Damage = Damage;
 }
 
+std::string ClapTrap::getName(void)
+{
+    return (this->Name);
+}
+
+
 int ClapTrap::getHit(void)
 {
-    std::cout << "ClapTrap " << this->Name << " has " << this->Hit << " point of Hit!" << std::endl;
+    //std::cout << "ClapTrap " << this->Name << " has " << this->Hit << " point of Hit!" << std::endl;
     return (this->Hit);
 }
 
 int ClapTrap::getEnergy(void)
 {
-    std::cout << "ClapTrap " << this->Name << " has " << this->Energy << " point of Energy!" << std::endl;
+    //std::cout << "ClapTrap " << this->Name << " has " << this->Energy << " point of Energy!" << std::endl;
     return (this->Energy);
 }
 
 int ClapTrap::getDamage(void)
 {
-    std::cout << "ClapTrap " << this->Name << " has " << this->Damage << " point of Damage!" << std::endl;
+    //std::cout << "ClapTrap " << this->Name << " has " << this->Damage << " point of Damage!" << std::endl;
     return (this->Damage);
-}
-
-std::string ClapTrap::getName(void)
-{
-    return (this->Name);
 }
 
 void ClapTrap::attack(const std::string &target)
