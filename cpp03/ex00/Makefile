@@ -3,14 +3,14 @@ NAME=ClapTrap
 C_FILES= main.cpp\
 		 ClapTrap.cpp\
 		 
-CC=c++
-CFLAGS= -std=c++98 -Wall -Wextra -Werror -g
+CXX=c++
+CXXFLAGS= -std=c++98 -Wall -Wextra -Werror -g
 REMOVE = rm -rf
 
 all: $(NAME)
 
 $(NAME): $(C_FILES)
-	$(CC) $(CFLAGS) $(C_FILES) -o $(NAME) 
+	$(CXX) $(CXXFLAGS) $(C_FILES) -o $(NAME) 
 
 clean:
 	$(REMOVE) -f

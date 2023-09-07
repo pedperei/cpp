@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap()
 {
-    std::cout << this->getName() << " - Default constructor has been called - ClapTrap" << std::endl;
+    std::cout << "Default constructor has been called - ClapTrap" << std::endl;
     this->Name = "Default";
     this->Hit = 10;
     this->Energy = 10;
@@ -11,13 +11,13 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(const ClapTrap &clap)
 {
-    std::cout << this->getName() << " - Copy constructor has been called - ClapTrap" << std::endl;
+    std::cout << "Copy constructor has been called - ClapTrap" << std::endl;
     *this = clap;
 }
 
 ClapTrap::ClapTrap(std::string Name)
 {
-    std::cout << this->getName() << " - Name constructor has been called - ClapTrap" << std::endl;
+    std::cout << "Name constructor has been called - ClapTrap" << std::endl;
     this->Name = Name;
     this->Hit = 10;
     this->Energy = 10;
