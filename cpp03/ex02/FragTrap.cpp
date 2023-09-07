@@ -2,18 +2,18 @@
 
 FragTrap::FragTrap():ClapTrap("Default")
 {
-    std::cout << "Default constructor has been called - FragTrap" << std::endl;
+    std::cout << this->getName() << " - Default constructor has been called - FragTrap" << std::endl;
     this->setHit(100);
     this->setEnergy(100);
-    this->setHit(30);
+    this->setDamage(30);
 }
 
 FragTrap::FragTrap(std::string Name):ClapTrap(Name)
 {
-    std::cout << "Name constructor has been called - FragTrap" << std::endl;
+    std::cout << this->getName() << " - Name constructor has been called - FragTrap" << std::endl;
     this->setHit(100);
     this->setEnergy(100);
-    this->setHit(30);
+    this->setDamage(30);
 }
 
 FragTrap::FragTrap(const FragTrap &frag)
@@ -24,7 +24,7 @@ FragTrap::FragTrap(const FragTrap &frag)
 
 FragTrap::~FragTrap()
 {
-    std::cout << "Destructor has been called - FragTrap" << std::endl;
+    std::cout << this->getName() << " - Destructor has been called - FragTrap" << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &p)

@@ -5,7 +5,7 @@ ScavTrap::ScavTrap():ClapTrap("Default")
     std::cout << this->getName() << " - Default constructor has been called - ScavTrap" << std::endl;
     this->setHit(100);
     this->setEnergy(50);
-    this->setHit(20);
+    this->setDamage(20);
 }
 
 ScavTrap::ScavTrap(std::string Name):ClapTrap(Name)
@@ -13,7 +13,7 @@ ScavTrap::ScavTrap(std::string Name):ClapTrap(Name)
     std::cout << this->getName() << " - Name constructor has been called - ScavTrap" << std::endl;
     this->setHit(100);
     this->setEnergy(50);
-    this->setHit(20);
+    this->setDamage(20);
 }
 
 ScavTrap::ScavTrap(const ScavTrap &scav)

@@ -2,16 +2,17 @@
 
 int main (void)
 {
-    ScavTrap scav0; 
     ScavTrap scav1("111");
-    ScavTrap scav2("222");
 
-    ClapTrap *clap1 = new ScavTrap("333");
-    ClapTrap clap2 = ScavTrap("444");
-    std:: cout << scav1.getHit() << std::endl;
-    std:: cout << scav2.getHit() << std::endl;
-    clap1->attack("dog"); 
-    clap2.attack("dog");
-    scav2.attack("dog");
-    scav2.guardGate();
+    std:: cout << "Hit points:" << scav1.getHit() << std::endl;
+    std:: cout << "Energy Points:" << scav1.getEnergy() << std::endl;
+    scav1.attack("dog");
+    scav1.attack("dog");
+    std:: cout << "Energy Points:" << scav1.getEnergy() << std::endl;
+    scav1.takeDamage(32); 
+    std:: cout << "Hit Points:" << scav1.getHit() << std::endl; 
+    scav1.guardGate();
+    scav1.takeDamage(70);
+    std:: cout << "Hit Points:" << scav1.getHit() << std::endl;
+    scav1.attack("dog");   
 }
