@@ -7,12 +7,12 @@ class AAnimal
 {
     protected:
         std::string type;
-        AAnimal();
     public:
+        AAnimal();
         AAnimal(const AAnimal&);
         virtual ~AAnimal();
         AAnimal &operator=(const AAnimal&);
         std::string getType() const;
-        virtual void makeSound() const;
+        virtual void makeSound() const = 0;
 };
 
