@@ -8,6 +8,7 @@ class Character : public ICharacter
     private:
         std::string name;
         AMateria *inventory[4];
+        AMateria *tmp_inv[100];
     public:
         Character();
         Character(std::string name);
