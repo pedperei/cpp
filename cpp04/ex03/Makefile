@@ -1,16 +1,15 @@
 NAME=Interface
 
 C_FILES= main.cpp\
-		 AAnimal.cpp\
-		 Dog.cpp\
-		 Cat.cpp\
-		 WrongAnimal.cpp\
-		 WrongCat.cpp\
-		 Brain.cpp\
+		 AMateria.cpp\
+		 Character.cpp\
+		 Cure.cpp\
+		 Ice.cpp\
+		 MateriaSource.cpp\
 		 
 		 
 CXX=c++
-CXXFLAGS= -std=c++98 -Wall -Wextra -Werror -g
+CXXFLAGS= -std=c++98 -Wall -Wextra -Werror -g -fstandalone-debug
 REMOVE = rm -rf
 
 all: $(NAME)

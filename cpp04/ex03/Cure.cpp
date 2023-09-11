@@ -2,12 +2,12 @@
 
 Cure::Cure()
 {
-    this->type = "";
+    this->type = "cure";
 }
 
 Cure::Cure(std::string type)
 {
-    this->type = "cure";
+    this->type = type;
 }
         
 Cure::Cure(const Cure &cure)
@@ -33,4 +33,9 @@ Cure *Cure::clone() const
 {
     Cure *newCure = new Cure("cure");
     return (newCure);
+}
+
+void Cure::use(ICharacter &character)
+{
+    std::cout << "* heals " << character.getName() << "’s wounds *" << std::endl;
 }

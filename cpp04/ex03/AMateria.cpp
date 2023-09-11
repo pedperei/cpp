@@ -28,3 +28,14 @@ AMateria& AMateria::operator=(const AMateria &amateria)
     }
     return (*this);
 }
+
+
+void AMateria::use(ICharacter& target)
+{
+    std::cout << "Default instruction " << target.getName() << std::endl;
+}
+
+std::string const &AMateria::getType() const
+{
+    return (this->type);
+}

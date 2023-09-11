@@ -2,12 +2,12 @@
 
 Ice::Ice()
 {
-    this->type = "";
+    this->type = "ice";
 }
 
 Ice::Ice(std::string type)
 {
-    this->type = "ice";
+    this->type = type;
 }
         
 Ice::Ice(const Ice &ice)
@@ -33,4 +33,9 @@ Ice *Ice::clone() const
 {
     Ice *newIce = new Ice("ice");
     return (newIce);
+}
+
+void Ice::use(ICharacter &character)
+{
+    std::cout << "* shoots an ice bolt at " << character.getName() << " *" << std::endl;
 }

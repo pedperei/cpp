@@ -1,7 +1,7 @@
 #include "Character.hpp"
 
 Character::Character()
-	: name("")
+	: name("Default")
 {
 	this->inventory[0] = NULL;
 	this->inventory[1] = NULL;
@@ -20,15 +20,21 @@ Character::Character(std::string name)
 
 Character::~Character()
 {
+	for (int i = 0; i < 4; i++)
+		delete this->inventory[i];
 }
 
 Character &Character::operator=(const Character &character)
 {
+	Character *newChar = new Character();
 	if (this != &character)
 	{
-		this->name = character.name;
+		newChar->name = character.name;
 		for (int i = 0; i < 4; i++)
-			this->inventory[i] = character.inventory[i];
+			delete this->inventory[i];
+		for (int i = 0; i < 4; i++)
+			newChar->inventory[i] = character.inventory[i];
+		return (*newChar);
 	}
 	return (*this);
 }
@@ -38,17 +44,18 @@ std::string const &Character::getName() const
 	return (this->name);
 }
 
-void Character::equip(AMateria *m)
+void Character::equip(AMateria* materia)
 {
-	if (!m || m->getType().empty())
+	if (!materia)
 		return ;
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->inventory[i])
+    for (int i = 0; i < 4; i++)
+    {
+        if (!this->inventory[i])
 		{
-			this->inventory[i] = m;
+            this->inventory[i] = materia;
+			break;
 		}
-	}
+    }
 }
 
 void Character::unequip(int idx)
@@ -57,10 +64,19 @@ void Character::unequip(int idx)
 	{
 		if (i == idx)
 		{
-            //insert tmp_inv
 			this->inventory[i] = NULL;
 		}
 	}
 }
 
-void	use(int idx, ICharacter &target);
+
+void Character::use(int idx, ICharacter &target)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (i == idx)
+		{
+            this->inventory[i]->use(target);
+		}
+	}
+}
