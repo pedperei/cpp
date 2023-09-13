@@ -14,7 +14,6 @@ Dog::Dog(const Dog &dog)
 
 Dog::~Dog()
 {
-    this->type = "Dog";
     std::cout << "Dog: destructor called" << std::endl;
 }
 

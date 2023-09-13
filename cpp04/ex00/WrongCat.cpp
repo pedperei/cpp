@@ -14,7 +14,6 @@ WrongCat::WrongCat(const WrongCat &wrongCat)
 
 WrongCat::~WrongCat()
 {
-    this->type = "WrongCat";
     std::cout << "WrongCat: destructor called" << std::endl;
 }
 
