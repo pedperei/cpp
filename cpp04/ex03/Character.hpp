@@ -9,7 +9,6 @@ class Character : public ICharacter
     private:
         std::string name;
         AMateria *inventory[4];
-        AMateria **list_materia;
     public:
         Character();
         Character(std::string name);
@@ -20,4 +19,5 @@ class Character : public ICharacter
         void equip(AMateria* m);
         void unequip(int idx);
         void use(int idx, ICharacter& target);
+        int check_address(AMateria *addr);
 };
