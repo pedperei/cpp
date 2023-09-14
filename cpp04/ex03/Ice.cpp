@@ -4,7 +4,7 @@ Ice::Ice():AMateria("ice"){}
 
 Ice::Ice(std::string type):AMateria(type){}
         
-Ice::Ice(const Ice &ice)
+Ice::Ice(const Ice &ice):AMateria(ice)
 {
     *this = ice;
 }

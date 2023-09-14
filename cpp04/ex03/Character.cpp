@@ -29,15 +29,16 @@ Character::~Character()
 
 Character &Character::operator=(const Character &character)
 {
-	Character *newChar = new Character();
 	if (this != &character)
 	{
-		newChar->name = character.name;
+		this->name = character.name;
 		for (int i = 0; i < 4; i++)
-			delete this->inventory[i];
+		{
+			if (this->inventory[i])
+				delete this->inventory[i];
+		}
 		for (int i = 0; i < 4; i++)
-			newChar->inventory[i] = character.inventory[i]->clone();
-		return (*newChar);
+			this->inventory[i] = character.inventory[i]->clone();
 	}
 	return (*this);
 }

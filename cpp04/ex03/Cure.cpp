@@ -4,7 +4,7 @@ Cure::Cure():AMateria("cure"){}
 
 Cure::Cure(std::string type):AMateria(type){}
         
-Cure::Cure(const Cure &cure)
+Cure::Cure(const Cure &cure):AMateria(cure)
 {
     *this = cure;
 }
