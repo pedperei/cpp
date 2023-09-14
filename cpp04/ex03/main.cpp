@@ -32,6 +32,11 @@ int main()
     me->use(0, *bob);
     me->use(1, *bob);
     me->use(3, *bob);
+    Character asd;
+    asd = Character((Character&)*me);
+    asd.use(0, *bob);
+    asd.use(1, *bob);
+    asd.use(3, *bob);
     delete bob;
     delete me;
     delete src;

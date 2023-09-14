@@ -18,6 +18,10 @@ Character::Character(std::string name):name(name)
 
 Character::Character(const Character &character)
 {
+	this->inventory[0] = NULL;
+	this->inventory[1] = NULL;
+	this->inventory[2] = NULL;
+	this->inventory[3] = NULL;
 	*this = character;
 }
 
@@ -33,10 +37,7 @@ Character &Character::operator=(const Character &character)
 	{
 		this->name = character.name;
 		for (int i = 0; i < 4; i++)
-		{
-			if (this->inventory[i])
-				delete this->inventory[i];
-		}
+			delete this->inventory[i];
 		for (int i = 0; i < 4; i++)
 			this->inventory[i] = character.inventory[i]->clone();
 	}
