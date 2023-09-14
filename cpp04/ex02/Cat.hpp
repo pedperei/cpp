@@ -12,4 +12,5 @@ class Cat: public AAnimal
         ~Cat();
         Cat &operator=(const Cat &cat);
         void makeSound() const;
+        Brain *getBrain() const;
 };

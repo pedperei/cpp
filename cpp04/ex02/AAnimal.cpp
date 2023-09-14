@@ -32,6 +32,11 @@ std::string AAnimal::getType() const
     return (this->type);
 }
 
+Brain *AAnimal::getBrain() const
+{
+    return (NULL);
+}
+
 void AAnimal::makeSound(void) const
 {
     std::cout << "Choose a specific AAnimal to make sound" << std::endl;

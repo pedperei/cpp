@@ -7,8 +7,9 @@ Dog::Dog()
     std::cout << "Dog: constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &dog)
+Dog::Dog(const Dog &dog):AAnimal(dog)
 {
+    this->brain = new Brain();
     *this = dog;
     std::cout << "Dog: constructor called" << std::endl;
 }
@@ -24,6 +25,7 @@ Dog &Dog::operator=(const Dog &dog)
     if (this != &dog)
     {
         this->type = dog.type;
+        *this->brain = *dog.brain;
     }
     std::cout << "Dog: assignment operator called" << std::endl;
     return (*this);    
@@ -32,4 +34,9 @@ Dog &Dog::operator=(const Dog &dog)
 void Dog::makeSound() const
 {
     std::cout << "Bark" << std::endl;
+}
+
+Brain *Dog::getBrain() const
+{
+    return (this->brain);
 }

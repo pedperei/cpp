@@ -13,5 +13,6 @@ class AAnimal
         virtual ~AAnimal();
         AAnimal &operator=(const AAnimal&);
         std::string getType() const;
+        virtual Brain *getBrain() const;
         virtual void makeSound() const = 0;
 };
