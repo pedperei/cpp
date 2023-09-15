@@ -1,7 +1,8 @@
-NAME=Bureaucrat
+NAME=28BC
 
 C_FILES= main.cpp\
 		 Bureaucrat.cpp\
+		 AForm.cpp\
 		 
 		 
 CXX=c++

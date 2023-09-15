@@ -1,7 +1,8 @@
-NAME=Interface
+NAME=Form
 
 C_FILES= main.cpp\
 		 Bureaucrat.cpp\
+		 Form.cpp\
 		 
 		 
 CXX=c++
