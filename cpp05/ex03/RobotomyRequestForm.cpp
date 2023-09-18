@@ -45,3 +45,8 @@ bool RobotomyRequestForm::execute(Bureaucrat const & executor) const
         return (false);
     }
 }
+
+AForm* RobotomyRequestForm::createNewForm(std::string target)
+{
+    return new RobotomyRequestForm(target);
+}
