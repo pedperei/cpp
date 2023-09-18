@@ -26,7 +26,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &bureaucrat)
             throw Bureaucrat::GradeTooLowException();
         else if (bureaucrat.grade < 1)
             throw Bureaucrat::GradeTooHighException();
-        this->grade = grade;
+        this->grade = bureaucrat.grade;
     }
     return (*this);
 }
@@ -66,8 +66,8 @@ void Bureaucrat::signForm(Form& form)
     }
     catch(std::exception& exception)
     {
-        std::cout << this->getName() << " couldn't sign form " << form.getName() << 
-            " because " << GradeTooLowException().what() << "." << std::endl;
+        std::cout << this->getName() << " couldn't sign " << form.getName() << 
+            " because " << exception.what() << "." << std::endl;
     }
 }
 

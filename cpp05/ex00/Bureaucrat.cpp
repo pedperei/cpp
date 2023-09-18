@@ -26,7 +26,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &bureaucrat)
             throw Bureaucrat::GradeTooLowException();
         else if (bureaucrat.grade < 1)
             throw Bureaucrat::GradeTooHighException();
-        this->grade = grade;
+        this->grade = bureaucrat.grade;
     }
     return (*this);
 }

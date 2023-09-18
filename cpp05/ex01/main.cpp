@@ -5,13 +5,14 @@ int main(void)
     {
         try
         {
-            Bureaucrat ze = Bureaucrat("ze", 120);
-            Bureaucrat wrongZe = Bureaucrat("ze", 220);
+            Bureaucrat ze = Bureaucrat("ze", 130);
+            Bureaucrat wrongZe = Bureaucrat("ze", 100);
             Form form1 = Form("Form1", 123, 123);
 
             std::cout << form1;
             ze.signForm(form1);
             std::cout << form1;
+            ze.signForm(form1);
         }
         catch (std::exception& e)
         {

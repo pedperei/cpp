@@ -1,8 +1,11 @@
-NAME=28BC
+NAME=Form
 
 C_FILES= main.cpp\
 		 Bureaucrat.cpp\
 		 AForm.cpp\
+		 ShrubberyCreationForm.cpp\
+		 RobotomyRequestForm.cpp\
+		 PresidentialPardonForm.cpp\
 		 
 		 
 CXX=c++

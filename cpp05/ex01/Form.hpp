@@ -40,6 +40,14 @@ public:
             return ("Grade too low");
         }
     };
+    class FormAlreadySignedException : public std::exception
+    {
+    public:
+        const char *what() const throw()
+        {
+            return ("Form is already signed");
+        }
+    };
 };
 
 std::ostream& operator<<(std::ostream& out, const Form& form);

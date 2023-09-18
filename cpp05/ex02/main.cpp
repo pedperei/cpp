@@ -1,46 +1,36 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
 int main(void)
 {
     {
         try
         {
-            Bureaucrat ze = Bureaucrat("ze", 120);
-            Bureaucrat wrongZe = Bureaucrat("ze", 220);
-            Form form1 = Form("Form1", 123, 123);
-
-            std::cout << form1;
-            ze.signForm(form1);
-            std::cout << form1;
+            AForm *form1 = new ShrubberyCreationForm();
+            AForm *form2 = new RobotomyRequestForm();
+            AForm *form3 = new PresidentialPardonForm();
+            Bureaucrat asd = Bureaucrat("asd", 30);
+            Bureaucrat tmp = Bureaucrat("asd2", 2);
+            Bureaucrat asd2 = tmp;
+            asd.executeForm(*form1);
+            asd.executeForm(*form2);
+            asd.executeForm(*form3);
+            asd.signForm(*form1);
+            asd.signForm(*form2);
+            asd.signForm(*form3);
+            asd2.signForm(*form3);
+            asd2.signForm(*form3);
+            asd.executeForm(*form3);
+            asd2.executeForm(*form3);
+            asd2.signForm(*form2);
+            asd.executeForm(*form2);
+            asd2.executeForm(*form2);
         }
         catch (std::exception& e)
         {
             std::cout << e.what() << std::endl;
         }
-    }
-    std::cout << std::endl;
-    {
-        try
-        {
-            Bureaucrat ze = Bureaucrat("ze", 120);
-            Form form1 = Form("Form1", 123, 123);
-
-            std::cout << form1;
-            ze.signForm(form1);
-            std::cout << form1;
-        }
-        catch (std::exception& e)
-        {
-            std::cout << e.what();
-        }
-    }
-    std::cout << std::endl;
-    {
-        Bureaucrat ze = Bureaucrat("ze", 120);
-        Form form1 = Form("Form1", 10, 123);
-
-        std::cout << form1;
-        ze.signForm(form1);
-        std::cout << form1;
     }
 }
