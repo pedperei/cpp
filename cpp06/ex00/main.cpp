@@ -2,8 +2,11 @@
 
 int main(int argc, char **argv)
 {
-    (void)argc;
-    ScalarConverter::convert(argv[1]);
-    /* float a = 123.567213f;
-    std::cout << a; */
+    if (argc != 2)
+        std::cout << "Wrong number of args passed" << std::endl;
+    else
+    {
+        ScalarConverter::convert(argv[1]);
+    }
+    return 0;
 }

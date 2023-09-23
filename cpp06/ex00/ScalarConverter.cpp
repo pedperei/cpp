@@ -25,7 +25,7 @@ void printChar(char c)
 
 void printInt(int i)
 {
-    if (i >=32 && i <= 126)
+    if ((char)i >=32 && (char)i <= 126)
         std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
@@ -38,7 +38,7 @@ void printFloat(float f)
 {
     if (f == std::floor(std::abs(f)))
     {
-        if ((int)f >=32 && (int)f <= 126)
+        if ((char)f >=32 && (char)f <= 126)
             std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
         else
             std::cout << "char: Non displayable" << std::endl;
@@ -48,7 +48,7 @@ void printFloat(float f)
     }
     else
     {
-        if ((int)f >=32 && (int)f <= 126)
+        if ((char)f >=32 && (char)f <= 126)
             std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
         else
             std::cout << "char: Non displayable" << std::endl;
@@ -62,7 +62,7 @@ void printDouble(double d)
 {
     if (d == std::floor(std::abs(d)))
     {
-        if ((int)d >=32 && (int)d <= 126)
+        if ((char)d >=32 && (char)d <= 126)
             std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
         else
             std::cout << "char: Non displayable" << std::endl;
@@ -72,7 +72,7 @@ void printDouble(double d)
     }
     else
     {
-        if ((int)d >=32 && (int)d <= 126)
+        if ((char)d >=32 && (char)d <= 126)
             std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
         else
             std::cout << "char: Non displayable" << std::endl;
@@ -85,7 +85,7 @@ void printDouble(double d)
 void printNanInf_f(float naninf)
 {
     std::cout << "char: impossible" << std::endl;
-    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
     std::cout << "float: " << naninf << "f" << std::endl;
     std::cout << "double: " << static_cast<double>(naninf) << std::endl;
 }
@@ -93,16 +93,24 @@ void printNanInf_f(float naninf)
 void printNanInf(double naninf)
 {
     std::cout << "char: impossible" << std::endl;
-    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
     std::cout << "float: " << static_cast<float>(naninf) << "f" << std::endl;
     std::cout << "double: " << naninf << std::endl;
+}
+
+void print_imp(void)
+{
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    std::cout << "float: impossible" << std::endl;
+    std::cout << "double: impossible" << std::endl;
 }
 
 bool is_integer(std::string literal)
 {
     for (int i = 0; i < (int)literal.size(); i++)
     {
-        if(!(literal[i] >= '0' && literal[i] <= '9'))
+        if(!(literal[i] >= '0' && literal[i] <= '9') || ((literal[i] == '+' || literal[i] == '-') && i == 0))
             return (0);
     }
     return (1);
@@ -115,7 +123,7 @@ bool is_float(std::string literal)
     int size = (int)literal.size();
     for (int i = 0; i < size; i++)
     {
-        if(((literal[i] >= '0' && literal[i] <= '9')
+        if(((literal[i] >= '0' && literal[i] <= '9') || ((literal[i] == '+' || literal[i] == '-') && i == 0)
             || (literal[i] == '.') || (literal[i] == 'f' && i == (size - 1))) && (crit <= 1))
         {
             if (literal[i] == '.')
@@ -124,7 +132,7 @@ bool is_float(std::string literal)
         else
             flag = 1;
     }
-    if (flag == 1)
+    if (flag == 1 || literal[size - 1] != 'f')
         return (0);
     return (1);
 }
@@ -136,7 +144,7 @@ bool is_double(std::string literal)
     int size = (int)literal.size();
     for (int i = 0; i < size; i++)
     {
-        if(((literal[i] >= '0' && literal[i] <= '9')
+        if(((literal[i] >= '0' && literal[i] <= '9') || ((literal[i] == '+' || literal[i] == '-') && i == 0)
             || (literal[i] == '.'))  && crit <= 1)
         {
             if (literal[i] == '.')
@@ -175,9 +183,19 @@ void ScalarConverter::convert(std::string literal)
     }
     else if (is_integer(literal))
     {
-        int i;
-        i = std::atoi(literal.c_str());
-        printInt(i);
+        double temp = std::atof(literal.c_str());;
+        if (temp >= INT_MIN && temp <= INT_MAX)
+        {
+            int i;
+            i = std::atoi(literal.c_str());
+            printInt(i);
+        }
+        else
+        {
+            double d;
+            d = std::atof(literal.c_str());
+            printDouble(d);
+        }
     }
     else if (is_float(literal))
     {
@@ -202,5 +220,9 @@ void ScalarConverter::convert(std::string literal)
         double d;
         d = std::atof(literal.c_str());
         printNanInf(d);
+    }
+    else
+    {
+        print_imp();
     }
 }
