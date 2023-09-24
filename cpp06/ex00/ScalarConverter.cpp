@@ -15,6 +15,24 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& scalarConvert
 
 ScalarConverter::~ScalarConverter(){}
 
+bool is_snotation (double num)
+{
+    int count = 1;
+    if (num < 0)
+        num = -num;
+    if (std::isinf(num))
+        return (1);
+    while(num > 9)
+    {
+        num /= 10;
+        count++;
+    }
+    if (count > 6)
+        return (1);
+    else
+        return (0);
+}
+
 void printChar(char c)
 {
     std::cout << "char: '" << c << "'" << std::endl;
@@ -30,8 +48,16 @@ void printInt(int i)
     else
         std::cout << "char: Non displayable" << std::endl;
     std::cout << "int: " << i << std::endl;
-    std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
-    std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
+    if (!is_snotation(i))
+    {
+        std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
+        std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
+    }
+    else
+    {
+        std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
+        std::cout << "double: " << static_cast<double>(i) << std::endl;
+    }
 }
 
 void printFloat(float f)
@@ -43,8 +69,16 @@ void printFloat(float f)
         else
             std::cout << "char: Non displayable" << std::endl;
         std::cout << "int: " << static_cast<int>(f) << std::endl;
-        std::cout << "float: " << f << ".0f" << std::endl;
-        std::cout << "double: " << static_cast<double>(f) << ".0" << std::endl;
+        if (!is_snotation(f))
+        {
+            std::cout << "float: " << f << ".0f" << std::endl;
+            std::cout << "double: " << static_cast<double>(f) << ".0" << std::endl;
+        }
+        else
+        {
+            std::cout << "float: " << f << "f" << std::endl;
+            std::cout << "double: " << static_cast<double>(f) << std::endl;
+        }
     }
     else
     {
@@ -67,8 +101,16 @@ void printDouble(double d)
         else
             std::cout << "char: Non displayable" << std::endl;
         std::cout << "int: " << static_cast<int>(d) << std::endl;
-        std::cout << "float: " << static_cast<float>(d) << ".0f" << std::endl;
-        std::cout << "double: " << d << ".0" << std::endl;
+        if (!is_snotation(d))
+        {
+            std::cout << "float: " << static_cast<float>(d) << ".0f" << std::endl;
+            std::cout << "double: " << d << ".0" << std::endl;
+        }
+        else
+        {
+            std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+            std::cout << "double: " << d << std::endl;
+        }
     }
     else
     {
@@ -110,7 +152,7 @@ bool is_integer(std::string literal)
 {
     for (int i = 0; i < (int)literal.size(); i++)
     {
-        if(!(literal[i] >= '0' && literal[i] <= '9') || ((literal[i] == '+' || literal[i] == '-') && i == 0))
+        if(!(literal[i] >= '0' && literal[i] <= '9') || !((literal[i] == '+' || literal[i] == '-') && i == 0))
             return (0);
     }
     return (1);
@@ -183,7 +225,7 @@ void ScalarConverter::convert(std::string literal)
     }
     else if (is_integer(literal))
     {
-        double temp = std::atof(literal.c_str());;
+        double temp = std::atof(literal.c_str());
         if (temp >= INT_MIN && temp <= INT_MAX)
         {
             int i;
