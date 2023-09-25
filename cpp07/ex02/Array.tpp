@@ -42,3 +42,8 @@ T& Array<T>::operator[](unsigned int i)
     throw std::exception();
 }
 
+template<typename T>
+T* Array<T>::getArr()
+{
+    return (this->arr);
+}

@@ -15,5 +15,6 @@ public:
     ~Array();
     Array& operator=(const Array& array);
     T& operator[](unsigned int i);
-    int size(void);
+    unsigned int size(void) const;
+    T* getArr();
 };
