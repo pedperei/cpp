@@ -1,5 +1,3 @@
-#pragma once
-
 #include "Array.hpp"
 
 template<typename T>
@@ -11,13 +9,36 @@ Array<T>::Array(unsigned int n):n(n),arr(new T[n]){}
 template<typename T>
 Array<T>::Array(const Array& array)
 {
+    this->arr = NULL;
     *this = array;
 }
 
 template<typename T>
-Array& Array<T>::operator=(const Array& array)
+Array<T>::~Array()
 {
     delete [] this->arr;
-    this->arr = new T[arr.n];
+}
+
+template<typename T>
+Array<T>& Array<T>::operator=(const Array& array)
+{
+    if (this != &array)
+    {
+        delete [] this->arr;
+        this->n = array.n;
+        this->arr = new T[array.n];
+        for (unsigned int i = 0; i < array.n; i++)
+            this->arr[i] = array.arr[i];
+    }
     return (*this);
 }
+
+template<typename T>
+T& Array<T>::operator[](unsigned int i)
+{
+    if(i < this->n)
+        return (this->arr[i]);
+    std::cout << "Index out of bouns" << std::endl;
+    throw std::exception();
+}
+
