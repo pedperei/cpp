@@ -3,7 +3,7 @@ NAME=Type
 C_FILES= main.cpp\
 
 CXX=c++
-CXXFLAGS= -std=c++98 -Wall -Wextra -Werror -g
+CXXFLAGS= -std=c++98 -Wall -Wextra -Werror -g -fstandalone-debug
 REMOVE = rm -rf
 
 all: $(NAME)

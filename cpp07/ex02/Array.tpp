@@ -38,8 +38,14 @@ T& Array<T>::operator[](unsigned int i)
 {
     if(i < this->n)
         return (this->arr[i]);
-    std::cout << "Index out of bouns" << std::endl;
+    std::cout << "Index out of bounds" << std::endl;
     throw std::exception();
+}
+
+template<typename T>
+unsigned int Array<T>::size(void) const
+{
+    return (this->n);
 }
 
 template<typename T>
