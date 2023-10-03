@@ -1,6 +1,7 @@
-NAME=Mutated
+NAME=btc
 
 C_FILES= main.cpp\
+		 BitcoinExchange.cpp\
 
 CXX=c++
 CXXFLAGS= -std=c++98 -Wall -Wextra -Werror -g

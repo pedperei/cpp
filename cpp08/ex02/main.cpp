@@ -49,4 +49,19 @@ int main()
         }
         //std::stack<int> s(mstack);
     }
+    std::cout << std::endl;
+    {
+        MutantStack<std::string> mutantStack;
+        mutantStack.push("mutant1");
+        mutantStack.push("mutant2");
+        mutantStack.push("mutant3");
+
+        MutantStack<std::string>::iterator it = mutantStack.begin();
+
+        while (it != mutantStack.end())
+        {
+            std::cout << *it << std::endl;
+            it++;
+        }
+    }
 }

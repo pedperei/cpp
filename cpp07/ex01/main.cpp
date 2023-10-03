@@ -11,7 +11,6 @@ int main( void ) {
     std::string stringArr[] = {"a", "b", "c", "d", "e"};
     double doubleArr[] = {0.5, 1.5, 2.5, 3.5, 4.5};
 
-
     int len = 5;
 
     ::iter(intArr, len, print<int>);
