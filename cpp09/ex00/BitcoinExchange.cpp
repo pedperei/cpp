@@ -111,20 +111,30 @@ int BitcoinExchange::extract_date_value(std::string input, char sep, int exchang
         if (pos == std::string::npos)
             throw std::runtime_error("Error: Missing separator");
         std::string date = input.substr(0, pos - exchange);
+        std::string value = input.substr(pos + 1 + exchange);
+        if (date == "date" && (value == "value" || value == "exchange_rate"))
+            return (0);
         if (!check_date(date))
             return (0);
-        std::string value = input.substr(pos + 1 + exchange);
         if (!check_value(value, exchange))
             return (0);
         if (exchange == 0)
         {
-            std::pair<std::string, float> tempPair = std::make_pair(date, (float)atof(value.c_str()));
+            std::pair<std::string, float> tempPair = std::make_pair(date, atof(value.c_str()));
             //std::cout << "Date: " << tempPair.first << ", Value: " << tempPair.second << std::endl;
             this->bitcoinMap.insert(tempPair);
         }
         else
         {
-            std::cout << date << " " << value << std::endl;
+            std::map<std::string, float>::iterator it = this->bitcoinMap.find(date);
+            if (it != this->bitcoinMap.end())
+                std::cout << date << " => " << value << " = " << (atof(value.c_str()) * it->second) << std::endl;
+            else
+            {
+                it = this->bitcoinMap.upper_bound(date);
+                it--;
+                std::cout << date << " => " << value << " = " << (atof(value.c_str()) * it->second) << std::endl;
+            }
         }
     }
     catch(const std::exception& e)
