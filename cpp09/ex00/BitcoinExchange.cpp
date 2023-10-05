@@ -131,7 +131,7 @@ int BitcoinExchange::extract_date_value(std::string input, char sep, int exchang
                 std::cout << date << " => " << value << " = " << (atof(value.c_str()) * it->second) << std::endl;
             else
             {
-                it = this->bitcoinMap.upper_bound(date);
+                it = this->bitcoinMap.lower_bound(date);
                 it--;
                 std::cout << date << " => " << value << " = " << (atof(value.c_str()) * it->second) << std::endl;
             }
