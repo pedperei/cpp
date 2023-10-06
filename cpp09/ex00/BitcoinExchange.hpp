@@ -7,6 +7,7 @@
 #include <fstream>
 #include <algorithm>
 #include <exception>
+#include <iomanip>
 
 class BitcoinExchange
 {
@@ -22,21 +23,8 @@ public:
     int fill_exchange(char sep, int exchange);
     int check_date(std::string date);
     int check_value(std::string nbr, int exchange);
-
+    int check_header(std::string input, char sep, int exchange);
 
     std::map<std::string, float> getBitcoinMap();
 
-    /* class CustomException : public std::exception 
-    {
-        private:
-            std::string errorMessage;
-
-        public:
-            CustomException(const std::string& message) : errorMessage(message) {}
-
-        virtual const char* what() const throw()
-        {
-            return errorMessage.c_str();
-        }
-    }; */
 };
