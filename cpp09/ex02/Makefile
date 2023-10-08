@@ -1,7 +1,7 @@
 NAME=RPN
 
 C_FILES= main.cpp\
-		 RPN.cpp\
+		 PmergeMe.cpp\
 
 CXX=c++
 CXXFLAGS= -std=c++98 -Wall -Wextra -Werror -g
