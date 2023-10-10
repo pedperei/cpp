@@ -11,32 +11,33 @@
 #include <iomanip>
 #include <sstream>
 #include <iterator>
+#include <ctime>
 
 class PmergeMe
 {
-public:
+private:
     std::vector<int> pmergeVector;
     std::list<int> pmergeList;
+public:
     PmergeMe();
     PmergeMe(const PmergeMe&);
     ~PmergeMe();
     PmergeMe& operator=(const PmergeMe& rpn);
 
-    std::vector<int> merge_sort_vector(std::vector<int> pmergeVector);
-    //std::vector<int> merge_vector(std::vector<int> vector1, std::vector<int> vector2);
     std::vector<int> insert_sort_vector(std::vector<int> pmergeVector);
-    
-    std::list<int> merge_sort_list(std::list<int> pmergeList);    
-    //std::list<int> merge_list(std::list<int> vector1, std::list<int> vector2);
-    std::list<int> insert_sort_list(std::list<int> pmergeList);
+    std::vector<int> merge_insert_sort_vector(std::vector<int> pmergeVector, size_t k);
 
-    int parse_input(std::string input);
+    
+    std::list<int> insert_sort_list(std::list<int> pmergeList);
+    std::list<int> merge_insert_sort_list(std::list<int> pmergeList, size_t k);
+
+
+    int parse_input_vector(std::string input);
+    int parse_input_list(std::string input);
+    void display_contents(int pre_sort, double vector, double list);
 
     std::vector<int> getPmergeVector();
     std::list<int> getPmergeList();
     void setPmergeVector(std::vector<int> pmergeVector);
     void setPmergeList(std::list<int> pmergeList);
-
-
-
 };
