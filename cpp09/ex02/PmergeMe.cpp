@@ -227,21 +227,20 @@ void PmergeMe::display_contents(int pre_sort, double vector, double list)
 {
 
     if (pre_sort)
-        std::cout << "Vector Before: ";
+        std::cout << "Before: ";
     else
-        std::cout << "Vector After: ";
-    std::vector<int>::iterator end_vector = this->pmergeVector.end();
-    std::vector<int>::iterator temp_vector = this->pmergeVector.begin();
+        std::cout << "After: ";
+    std::list<int>::iterator end_vector = this->pmergeList.end();
+    std::list<int>::iterator temp_vector = this->pmergeList.begin();
     for (; temp_vector != end_vector; temp_vector++) 
         std::cout << *temp_vector << " ";
     std::cout << std::endl;
     if (!pre_sort)
     {
+        std::cout << "Time to process a range of " << this->pmergeList.size() << 
+            " with std::list : " << list << " us" << std::endl;
         std::cout << "Time to process a range of " << this->pmergeVector.size() << 
             " with std::vector : " << vector << " us" << std::endl;
-        if (!pre_sort)
-            std::cout << "Time to process a range of " << this->pmergeList.size() << 
-                " with std::list : " << list << " us" << std::endl;
     }
 }
 

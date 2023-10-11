@@ -59,7 +59,7 @@ int RPN::parse_input(std::string input)
         else if (token == "+" || token == "-" || token == "*" || token == "/")
             handle_operation(token);
         else
-            throw std::runtime_error("Error: Invalid character");
+            throw std::runtime_error("Error: Invalid input " + token);
     }
     if (this->rpn_stack.size() != 1)
         throw std::runtime_error("Error: Invalid operation");

@@ -2,12 +2,19 @@
 
 int main (int argc, char **argv)
 {
-    if (argc == 2)
+    if (argc > 1)
     {
+        std::stringstream s_input;
+        int i = 1;
+        while (argv[i])
+        {
+            s_input << argv[i] << " ";
+            i++;
+        }
         try
         {
             RPN rpn;
-            std::cout << rpn.parse_input(argv[1]) << std::endl;
+            std::cout << rpn.parse_input(s_input.str()) << std::endl;
         }
         catch(const std::exception& e)
         {

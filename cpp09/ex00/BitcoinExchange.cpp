@@ -44,7 +44,6 @@ int count_digits(std::string nbr)
         {
             return (0);
         }
-        i++;
     }
     return (i);
 }
