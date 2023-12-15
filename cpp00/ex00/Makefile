@@ -7,7 +7,7 @@ CFLAGS= -std=c++98 -Wall -Wextra -Werror  -g
 REMOVE = rm -rf
 
 all: $(NAME)
-
+ 
 $(NAME):
 	$(CC) $(CFLAGS) $(C_FILES) -o $(NAME) 
 
